@@ -1,0 +1,152 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-display: 'Outfit', 'Plus Jakarta Sans', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: #060512;
+    color: #F8FAFC;
+    overflow-x: hidden;
+  }
+
+  /* Custom scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.18);
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.32);
+  }
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* =========================================================================
+   GEN Z AMBIENT AURORA & GLASS STYLES
+   ========================================================================= */
+
+/* Gen Z Animated Mesh Background Container */
+.genz-background {
+  background-color: #060512;
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(236, 72, 153, 0.22) 0px, transparent 50%),
+    radial-gradient(at 90% 10%, rgba(139, 92, 246, 0.24) 0px, transparent 50%),
+    radial-gradient(at 50% 60%, rgba(6, 182, 212, 0.16) 0px, transparent 55%),
+    radial-gradient(at 100% 100%, rgba(244, 63, 94, 0.20) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, rgba(99, 102, 241, 0.22) 0px, transparent 50%);
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
+
+/* Alternative Gen Z Themes */
+.theme-acid-cyber {
+  background-color: #05040e;
+  background-image: 
+    radial-gradient(circle at 15% 15%, rgba(236, 72, 153, 0.28) 0%, transparent 45%),
+    radial-gradient(circle at 85% 20%, rgba(6, 182, 212, 0.26) 0%, transparent 45%),
+    radial-gradient(circle at 50% 85%, rgba(139, 92, 246, 0.22) 0%, transparent 50%);
+}
+
+.theme-y2k-chrome {
+  background-color: #070914;
+  background-image: 
+    radial-gradient(circle at 20% 20%, rgba(168, 85, 247, 0.22) 0%, transparent 45%),
+    radial-gradient(circle at 80% 30%, rgba(59, 130, 246, 0.20) 0%, transparent 45%),
+    radial-gradient(circle at 50% 90%, rgba(244, 114, 182, 0.18) 0%, transparent 50%);
+}
+
+.theme-sunset-rave {
+  background-color: #0a0412;
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(249, 115, 22, 0.25) 0%, transparent 45%),
+    radial-gradient(circle at 90% 15%, rgba(236, 72, 153, 0.28) 0%, transparent 45%),
+    radial-gradient(circle at 50% 80%, rgba(147, 51, 234, 0.24) 0%, transparent 50%);
+}
+
+.theme-matrix-mint {
+  background-color: #03080a;
+  background-image: 
+    radial-gradient(circle at 15% 20%, rgba(16, 185, 129, 0.22) 0%, transparent 45%),
+    radial-gradient(circle at 85% 15%, rgba(6, 182, 212, 0.24) 0%, transparent 45%),
+    radial-gradient(circle at 50% 85%, rgba(59, 130, 246, 0.18) 0%, transparent 50%);
+}
+
+/* Subtle Gen Z Film Grain Simulation */
+.genz-grain-overlay {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.025'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+/* Glass & Surface styles with Gen Z Refraction */
+.blin-surface {
+  background: rgba(14, 11, 34, 0.72);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.blin-surface-solid {
+  background: #0C0922;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+.blin-cta-gradient {
+  background: linear-gradient(135deg, #EC4899 0%, #8B5CF6 50%, #06B6D4 100%);
+  background-size: 200% 200%;
+  animation: gradientShift 6s ease infinite;
+}
+
+.blin-cta-gradient:hover {
+  filter: brightness(1.15);
+}
+
+.blin-reels-gradient {
+  background: linear-gradient(135deg, #F43F5E 0%, #A855F7 50%, #3B82F6 100%);
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Glow effects */
+.blin-glow-pink {
+  box-shadow: 0 0 30px -5px rgba(244, 63, 94, 0.5);
+}
+
+.blin-glow-purple {
+  box-shadow: 0 0 30px -5px rgba(139, 92, 246, 0.5);
+}
+
+.blin-glow-cyan {
+  box-shadow: 0 0 30px -5px rgba(6, 182, 212, 0.5);
+}
+
+/* Hide native scrollbar for snap reel containers */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

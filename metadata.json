@@ -1,0 +1,8 @@
+{
+  "name": "BLiN Pro Suite",
+  "description": "Unlock 100+ advanced settings to fully customize your BLiN experience with enhanced control, privacy, and creator tools.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

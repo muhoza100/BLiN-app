@@ -1,0 +1,176 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "User profile and public metadata stored securely in Firestore",
+      "type": "object",
+      "properties": {
+        "uid": {
+          "type": "string",
+          "description": "Firebase Auth user identifier",
+          "maxLength": 128
+        },
+        "email": {
+          "type": "string",
+          "description": "User email address",
+          "maxLength": 256
+        },
+        "displayName": {
+          "type": "string",
+          "description": "Display name of the user",
+          "maxLength": 64
+        },
+        "username": {
+          "type": "string",
+          "description": "Unique handle",
+          "maxLength": 32
+        },
+        "pointsBalance": {
+          "type": "number",
+          "description": "BLiN points balance calculated and secured"
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "Server timestamp of account creation",
+          "maxLength": 64
+        },
+        "updatedAt": {
+          "type": "string",
+          "description": "Server timestamp of profile update",
+          "maxLength": 64
+        }
+      },
+      "required": ["uid", "email", "displayName", "username", "pointsBalance", "createdAt"]
+    },
+    "GameScore": {
+      "title": "GameScore",
+      "description": "Player high scores and arcade accomplishments",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "User ID of the player",
+          "maxLength": 128
+        },
+        "displayName": {
+          "type": "string",
+          "description": "Player display name",
+          "maxLength": 64
+        },
+        "score": {
+          "type": "number",
+          "description": "High score achieved"
+        },
+        "gameMode": {
+          "type": "string",
+          "description": "Game mode",
+          "maxLength": 32
+        },
+        "pointsAwarded": {
+          "type": "number",
+          "description": "BLiN Points earned from this run"
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "Timestamp of record",
+          "maxLength": 64
+        }
+      },
+      "required": ["userId", "displayName", "score", "gameMode", "createdAt"]
+    },
+    "GeneratedVideo": {
+      "title": "GeneratedVideo",
+      "description": "AI video clips generated using Gemini Omni 1.1 Flash via Interactions API",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "Creator user identifier",
+          "maxLength": 128
+        },
+        "prompt": {
+          "type": "string",
+          "description": "Text prompt used for video generation",
+          "maxLength": 1000
+        },
+        "videoUrl": {
+          "type": "string",
+          "description": "Data URL or storage link to the generated video",
+          "maxLength": 5000000
+        },
+        "aspectRatio": {
+          "type": "string",
+          "description": "Video aspect ratio: 9:16 or 16:9",
+          "maxLength": 16
+        },
+        "duration": {
+          "type": "string",
+          "description": "Duration of clip",
+          "maxLength": 16
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "Creation timestamp",
+          "maxLength": 64
+        }
+      },
+      "required": ["userId", "prompt", "videoUrl", "aspectRatio", "createdAt"]
+    },
+    "SavedPlace": {
+      "title": "SavedPlace",
+      "description": "Real-world street spots and creator locations retrieved via Google Maps Grounding",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "User identifier who saved the place",
+          "maxLength": 128
+        },
+        "placeName": {
+          "type": "string",
+          "description": "Name of the venue or location",
+          "maxLength": 128
+        },
+        "formattedAddress": {
+          "type": "string",
+          "description": "Address from Google Maps",
+          "maxLength": 256
+        },
+        "category": {
+          "type": "string",
+          "description": "Place category (e.g. coffee, studio, park)",
+          "maxLength": 64
+        },
+        "summary": {
+          "type": "string",
+          "description": "Street-smart summary from Gemini Maps grounding",
+          "maxLength": 1000
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "Timestamp when place was saved",
+          "maxLength": 64
+        }
+      },
+      "required": ["userId", "placeName", "formattedAddress", "category", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": { "$ref": "UserProfile" },
+      "description": "Public and account user profiles"
+    },
+    "/game_scores/{scoreId}": {
+      "schema": { "$ref": "GameScore" },
+      "description": "High score leaderboard for BLiN Arcade"
+    },
+    "/generated_videos/{videoId}": {
+      "schema": { "$ref": "GeneratedVideo" },
+      "description": "AI Omni Flash generated video records"
+    },
+    "/saved_places/{placeId}": {
+      "schema": { "$ref": "SavedPlace" },
+      "description": "Google Maps grounded saved locations"
+    }
+  }
+}
